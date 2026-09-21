@@ -1,15 +1,17 @@
-#include <vector.h>
-
+#include <vector>
+#include <cstddef>
 
 class Matrix{
     public:
         Matrix(std::size_t rows, std::size_t cols);
-        std::size_t numCols();
-        std::size_t numRows();
-        
+        std::size_t numCols() const;
+        std::size_t numRows() const;
+        double& operator()(std::size_t rows, std::size_t cols);
+        const double& operator()(std::size_t rows, std::size_t cols) const;
+
 
     private:
-        int cols;
-        int rows;
-        std::vector<double> data;
-}
+        std::size_t cols;
+        std::size_t rows_;
+        std::vector<double> data_;
+};
